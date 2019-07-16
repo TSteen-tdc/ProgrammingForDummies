@@ -31,7 +31,9 @@ class Db:
     }
 
     def get_user_id(self, username: str, password: str) -> int:
+        "Outputs the userid matching a certain username and password. If no userid matches the given input, the method returns -1."
         return self.user_ids.get(username, -1)
 
     def get_user(self, user_id: int) -> DbUser:
+        "Outputs a DbUser object containing the data for the user matching the userid. If no user is found for the userid returns None."
         return self.users.get(user_id, None)
