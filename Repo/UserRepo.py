@@ -1,4 +1,6 @@
-class DbUser:
+
+
+class UserResult:
     name: str = None
     repeat: bool = False
 
@@ -7,7 +9,7 @@ class DbUser:
         self.repeat = repeat
 
 
-class Db:
+class UserRepo:
     user_ids = {
         "Joe": 312,
         "Bob": 349,
@@ -20,20 +22,20 @@ class Db:
     }
 
     users = {
-        12: DbUser("Bill Clinton", False),
-        13: DbUser("Dr who", True),
-        15: DbUser("John Mcclane", True),
-        17: DbUser("Luke Skywalker", False),
-        19: DbUser("Darth Vader", False),
-        67: DbUser("Nick Fury", True),
-        312: DbUser("Joe", False),
-        349: DbUser("Bob", True)
+        12: UserResult("Bill Clinton", False),
+        13: UserResult("Dr who", True),
+        15: UserResult("John Mcclane", True),
+        17: UserResult("Luke Skywalker", False),
+        19: UserResult("Darth Vader", False),
+        67: UserResult("Nick Fury", True),
+        312: UserResult("Joe", False),
+        349: UserResult("Bob", True)
     }
 
     def get_user_id(self, username: str, password: str) -> int:
         "Outputs the userid matching a certain username and password. If no userid matches the given input, the method returns -1."
         return self.user_ids.get(username, -1)
 
-    def get_user(self, user_id: int) -> DbUser:
+    def get_user(self, user_id: int) -> UserResult:
         "Outputs a DbUser object containing the data for the user matching the userid. If no user is found for the userid returns None."
         return self.users.get(user_id, None)
